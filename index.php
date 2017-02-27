@@ -1,4 +1,10 @@
 <?php
+define("dtype", "mysql");
+define("dbName", "_pdo");
+define("dbHost", "localhost");
+define("dbUsername", "root");
+define("dbUserPassword", "root");
+define("dbport", "");
 include ("pdodb.php");
 $crud = new CRUD();
 $denemetb = $crud->select("deneme", "*", null, null, null, "0,5");

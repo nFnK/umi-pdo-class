@@ -2,14 +2,13 @@
 
 class Database
 {
-     private static $dtype = 'mysql'; // mysql,sqlite, pgsql, dblib-> mssql
-      private static $dbName = '_pdo';
-      private static $dbHost = 'localhost';
-      private static $dbUsername = 'root';
-      private static $dbUserPassword = 'root';
-      private static $dbport = '';
+    private static $dtype = dtype; // mysql,sqlite, pgsql, dblib-> mssql
+      private static $dbName = dbName;
+      private static $dbHost = dbHost;
+      private static $dbUsername = dbUsername;
+      private static $dbUserPassword = dbUserPassword;
+      private static $dbport = dbport;
       private static $dbset = 'utf8';
-
       private static $cont = null;
 
       public function __construct()
