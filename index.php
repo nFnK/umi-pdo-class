@@ -1,11 +1,12 @@
 <?php
+
 include ("pdodb.php");
 $crud = new CRUD();
-$denemetb = $crud->select("deneme","*",null,null,null,"0,5");
+$denemetb = $crud->select("deneme", "*", null, null, null, "0,5");
 //($table, $rows = '*', $join = null, $where = null, $order = null, $limit = null)
-if (count($denemetb) > 0)
+if(count($denemetb) > 0)
 {
-echo '<table class="table table-bordered table-striped">
+      echo '<table class="table table-bordered table-striped">
                         <tr>
                             <th>No.</th>
                             <th>First Name</th>
@@ -13,22 +14,22 @@ echo '<table class="table table-bordered table-striped">
                             <th>Email Address</th>
                         </tr>';
 
-    $number = 1;
-    foreach ($denemetb as $ic)
-    {
-       echo '<tr>
+      $number = 1;
+      foreach ($denemetb as $ic)
+      {
+            echo '<tr>
                 <td>' . $number . '</td>
                 <td>' . $ic['ekleyen'] . '</td>
                 <td>' . $ic['baslik'] . '</td>
                 <td>' . $ic['eklenme'] . '</td>
          
             </tr>';
-        $number++;
-    }
-echo '</table>';
+            $number++;
+      }
+      echo '</table>';
 } else
 {
-echo '<tr><td colspan="6">Hata select</td></tr>';
+      echo '<tr><td colspan="6">Hata select</td></tr>';
 }
 
 
@@ -37,16 +38,23 @@ echo '<tr><td colspan="6">Hata select</td></tr>';
 echo "<hr />";
 
 
-
+// deneme 2
 
 // detay
 echo "<hr />";
-$detay = json_decode($crud->details(39));
-echo $detay->baslik;
+$detay = json_decode($crud->details("deneme", "*", "id=39", null, "0,5"));
+echo $detay->ekleyen . "___" . $detay->baslik . "<hr />";
 
 /* // insert
 $crud->insert('deneme',array('ekleyen'=>'insertx','baslik'=>''.rand().'','onay'=>'2','ip'=>'212.22.22.2'));  
 echo "<br />".  $crud->insertid();*/
-$crud->update('deneme','id=42',array('ekleyen'=>'upladık','eklenme'=>'2015-01-01 14:06:41','baslik'=>'up '.rand().'','onay'=>'3','ip'=>'111.22.22.2'));  
+$crud->update('deneme', 'id=42', array(
+      'ekleyen' => 'upladık',
+      'eklenme' => '2015-01-01 14:06:41',
+      'baslik' => 'up ' . rand() . '',
+      'onay' => '3',
+      'ip' => '111.22.22.2'));
+$sil = $crud->delete('deneme', array('ekleyen' => 'insertx', 'id' => '151'));
+echo $crud->ok;
 
 ?>
