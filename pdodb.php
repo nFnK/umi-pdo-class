@@ -60,6 +60,7 @@ class CRUD extends Database
       {
             $query = $this->db->prepare('INSERT INTO `' . $table . '` (' . implode(',', array_keys($params)) . ') VALUES (:' . implode(',:',array_keys($params)) . ')');
             $query->execute($params);
+             $this->ok = $query->rowCount();
             return $this->db->lastInsertId();
       }
 
@@ -130,6 +131,7 @@ class CRUD extends Database
             }
             $query = $this->db->prepare($q);
             $query->execute();
+            $this->ok = $query->rowCount();
             return json_encode($query->fetch(PDO::FETCH_ASSOC));
       }
 
