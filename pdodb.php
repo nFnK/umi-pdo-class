@@ -22,9 +22,7 @@ class Database
             {
                   try
                   {
-                        self::$cont = new PDO("mysql:host=" . self::$dbHost .
-                              ";" . "dbname=" . self::$dbName, self::$dbUsername,
-                              self::$dbUserPassword);
+                        self::$cont = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
                         self::$cont->exec("SET NAMES " . self::$dbset . "");
                   }
                   catch (PDOException $e)
