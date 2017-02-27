@@ -84,8 +84,7 @@ class CRUD extends Database
       }
 
 
-      public function select($table, $rows = '*', $join = null, $where = null, $order = null,
-            $limit = null)
+      public function select($table, $rows = '*', $join = null, $where = null, $order = null, $limit = null)
       {
             $q = 'SELECT ' . $rows . ' FROM ' . $table;
             if($join != null)
@@ -115,8 +114,7 @@ class CRUD extends Database
       }
 
 
-      public function details($table, $rows = '*', $where = null, $order = null,
-            $limit = null)
+      public function details($table, $rows = '*', $where = null, $order = null,  $limit = null)
       {
             $q = 'SELECT ' . $rows . ' FROM ' . $table;
             if($where != null)
