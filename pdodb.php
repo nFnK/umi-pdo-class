@@ -2,10 +2,12 @@
 
 class Database
 {
+     private static $dtype = 'mysql'; // mysql,sqlite, pgsql, dblib-> mssql
       private static $dbName = '_pdo';
       private static $dbHost = 'localhost';
       private static $dbUsername = 'root';
       private static $dbUserPassword = 'root';
+      private static $dbport = '';
       private static $dbset = 'utf8';
 
       private static $cont = null;
@@ -22,8 +24,18 @@ class Database
             {
                   try
                   {
-                        self::$cont = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
-                        self::$cont->exec("SET NAMES " . self::$dbset . "");
+                    if(self::$dtype=="mysql") {
+                        self::$cont = new PDO("".self::$dtype.":host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
+                        }
+                     if(self::$dtype=="sqlite") {  self::$cont = new PDO("".self::$dtype.":".self::$dbName."");
+                      }
+                         
+                     if(self::$dtype=="pgsql") { self::$cont = new  PDO("".self::$dtype.":dbname=". self::$dbName.";host=". self::$dbHost."", self::$dbUsername, self::$dbUserPassword);
+                      }
+                      
+                       if(self::$dtype=="pgsql") { self::$cont = new  PDO("".self::$dtype.":host=".self::$dbHost.":".self::$dbport.";dbname=".self::$dbName."","".self::$dbUsername."","".self::$dbUserPassword."");
+                        }
+                      self::$cont->exec("SET NAMES " . self::$dbset . "");
                   }
                   catch (PDOException $e)
                   {
@@ -132,6 +144,8 @@ class CRUD extends Database
             $query = $this->db->prepare($q);
             $query->execute();
             $this->ok = $query->rowCount();
+            
+            
             return json_encode($query->fetch(PDO::FETCH_ASSOC));
       }
 

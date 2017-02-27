@@ -1,5 +1,4 @@
 <?php
-
 include ("pdodb.php");
 $crud = new CRUD();
 $denemetb = $crud->select("deneme", "*", null, null, null, "0,5");
@@ -55,8 +54,5 @@ $crud->update('deneme', 'id=42', array(
       'baslik' => 'up ' . rand() . '',
       'onay' => '3',
       'ip' => '111.22.22.2'));
-$sil = $crud->delete('deneme', array('ekleyen' => 'insertx', 'id' => '160'));
+$sil = $crud->delete('deneme', array('ekleyen' => 'insertx', 'id' => '161'));
 echo $crud->ok; // 1 or 0
-
-
-?>
