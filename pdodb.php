@@ -76,8 +76,7 @@ class CRUD extends Database
                   $ikey .= $zzm . " = :" . $zzm . ", ";
             }
             $ikey = rtrim($ikey, ", ");
-            $query = $this->db->prepare('UPDATE `' . $table . '` set ' . $ikey .
-                  ' where  ' . $id . '');
+            $query = $this->db->prepare('UPDATE `' . $table . '` set ' . $ikey . ' where  ' . $id . '');
             $query->execute($params);
             $this->ok = $query->rowCount();
             return $query->rowCount();
@@ -144,8 +143,7 @@ class CRUD extends Database
             }
             $cont = strlen($ikey) - 5;
             $ikey = substr($ikey, 0, $cont);
-            $query = $this->db->prepare('DELETE FROM ' . $table . ' where ' . $ikey .
-                  '');
+            $query = $this->db->prepare('DELETE FROM ' . $table . ' where ' . $ikey . '');
             $query->execute($where);
             $this->ok = $query->rowCount();
             return $query->rowCount();
