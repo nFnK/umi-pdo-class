@@ -40,7 +40,7 @@ echo "<hr />";
 
 // deneme 2
 
-// detay
+// detay 2
 echo "<hr />";
 $detay = json_decode($crud->details("deneme", "*", "id=39", null, "0,5"));
 echo $detay->ekleyen . "___" . $detay->baslik . "<hr />";
@@ -55,6 +55,6 @@ $crud->update('deneme', 'id=42', array(
       'onay' => '3',
       'ip' => '111.22.22.2'));
 $sil = $crud->delete('deneme', array('ekleyen' => 'insertx', 'id' => '151'));
-echo $crud->ok;
+echo $crud->ok; // 1 or 0
 
 ?>
