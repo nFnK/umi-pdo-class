@@ -45,7 +45,7 @@ echo "<hr />";
 $detay = json_decode($crud->details("deneme", "*", "id=39", null, "0,5"));
 echo $detay->ekleyen . "___" . $detay->baslik . "<hr />";
 
-/* // insert //
+/* // insert // last
 $crud->insert('deneme',array('ekleyen'=>'insertx','baslik'=>''.rand().'','onay'=>'2','ip'=>'212.22.22.2'));  
 echo "<br />".  $crud->insertid();*/
 $crud->update('deneme', 'id=42', array(
