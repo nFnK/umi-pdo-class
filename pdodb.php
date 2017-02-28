@@ -66,7 +66,12 @@ class CRUD extends Database
             $this->db = parent::disconnect();
       }
 
-
+      public function create($table, $detail)
+      {
+            $query = $this->db->exec("CREATE TABLE ".$table." (".$detail.")");
+            return $query;
+      }
+      
       public function insert($table, $params = array())
       {
             $query = $this->db->prepare('INSERT INTO `' . $table . '` (' . implode(',', array_keys($params)) . ') VALUES (:' . implode(',:',array_keys($params)) . ')');
