@@ -13,7 +13,6 @@ Database List :+1:
 
 
 ```php
-<?php
 define("dtype", "mysql");
 define("dbName", "_pdo");
 define("dbHost", "localhost");
@@ -24,6 +23,17 @@ include ("pdodb.php");
 $crud = new CRUD();
 
 ```
+create table
+```php
+$table =$crud->create("newtable","id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+date TIMESTAMP");
+
+```
+
+
 select all
 ```php
 $denemetb = $crud->select("deneme", "*", null, null, null, "0,5");

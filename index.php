@@ -63,8 +63,8 @@ $crud->update('deneme', 'id=42', array(
 $sil = $crud->delete('deneme', array('ekleyen' => 'insertx', 'id' => '161'));
 echo $crud->ok; // 1 or 0
 
-$table =$crud->create("aaa","id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+$table =$crud->create("newtable","id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 firstname VARCHAR(30) NOT NULL,
 lastname VARCHAR(30) NOT NULL,
 email VARCHAR(50),
-reg_date TIMESTAMP");
+date TIMESTAMP");
